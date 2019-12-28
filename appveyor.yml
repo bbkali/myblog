@@ -7,6 +7,10 @@ install:
     - npm --version
     - npm install
     - npm install hexo-cli -g
+    - npm install hexo-renderer-jade --save
+    - npm install hexo-renderer-stylus --save
+    - npm install hexo-deployer-git --save
+    - npm install hexo-algolia --save
 build_script:
     - hexo generate
 artifacts:
