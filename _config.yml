@@ -1,0 +1,90 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: bb的博客
+subtitle: # 网站副标题
+description: This is myblog! # 网站描述
+keywords:
+author: bb
+email: shuiyue75381@gmail.com
+language:
+copyright: bb
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://bbkali.github.io
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives # 归档文件夹
+category_dir: categories # 分类文件夹
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render: #跳过指定文件的渲染，您可使用 glob表达式来匹配路径
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # 把标题转换为 title case
+external_link: true # 在新标签中打开链接
+filename_case: 0 # 把文件名称转换为 (1) 小写或 (2) 大写
+render_drafts: false # 显示草稿
+post_asset_folder: false # 启动 Asset 文件夹
+relative_link: false # 把链接改为与根目录的相对位址
+future: true # 显示未来的文章
+highlight: # 代码块的设置
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+  
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 5
+  order_by: -date
+  
+# Category & Tag
+default_category: uncategorized # 默认分类
+category_map: # 分类别名
+  测试: test
+tag_map: # 标签别名
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## 每页显示的文章量
+per_page: 50
+pagination_dir: page
+
+# 扩展
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: Fan
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy: # 部署部分的设置
+  type: git
+  repository: git@github.com:bbkali/bbkali.github.io.git
+  branch: master
+
+algolia:
+  applicationID: X7RY6NGU4G
+  apiKey: bf7ed65264918bbc03f12b4cc1212d85
+  indexName: myblog
