@@ -69,8 +69,7 @@
          "title:",
          "date:",
          "tags:",
-         "categories:",
-         "comments: true",
+         "categories:"
          "---"
       ],
       "description": "notes title"
