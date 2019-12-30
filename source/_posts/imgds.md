@@ -9,7 +9,4 @@ categories:
 ![2.jpg](https://raw.githubusercontent.com/bbkali/test/master/imgs/2.jpg)
 
 # 这是第二张图片
-![2019-12-30-22-30-37-imgds](https://raw.githubusercontent.com/bbkali/bbkali.github.io/master/images/2019-12-30-22-30-37-imgds)
-
-# 这是第三张图片
-![2019-12-30-22-32-40](https://raw.githubusercontent.com/bbkali/bbkali.github.io/master/images/2019-12-30-22-32-40)
+![imgds-2019-12-30-22-57-27](https://raw.githubusercontent.com/bbkali/picbad/master/imgds-2019-12-30-22-57-27)
