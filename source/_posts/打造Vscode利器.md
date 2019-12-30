@@ -58,6 +58,35 @@ categories:
 
 * 因为我们知道，vscode是文本编辑器，如果你直接在vscode中使用ctrl+v粘贴图片，是无法粘贴成功的。正确的姿势是，我们使用截图工具，如微信的截图工具，截图成功后会保存在剪贴板中，这时按ctrl+alt+u就开始上传图片了。或者，按ctrl+alt+e，选择一张图片上传即可。
 
+    #### 配置图床位置
+    1. 打开设置，找到extensions中的Picgo的设置
+往下拖找到github，进行配置:
+    首先是PicGo-Core设为
+    ```
+    github
+    \\ 可以用git命令查看分支
+    git branch -a
+    默认是master
+    ```
+    2. 设置Path,一般在rep中加个目录就行
+    注意，Path后面加"/"，不然后面一部分会当成图片名称合并进去。比如Path设为：
+    ```
+    imgs/
+    ```
+    3. 生成github的token
+    ```
+    github头像-Developer Settings-Personal Access
+    ```
+    配置主要有以下参数
+    ```
+    {
+    "repo": "", // 仓库名，格式是username/reponame
+    "token": "", // github token
+    "path": "", // 自定义存储路径，比如img/
+    "customUrl": "", // 自定义域名，注意要加http://或者https://
+    "branch": "" // 分支名，默认是master
+    }
+    ```
 
 
 ## Vscode 结合印象笔记实时同步
