@@ -62,18 +62,18 @@
    - 在VS code中创建Snppets: 首先在File(文件)>Preferences(首选项)>Snippets(用户代码片段)，选择markdown, 在新增加的markdown.json文件中增加如下内容
    ```
       {
-   "markdown title":{
-      "prefix": "mdtitle",
-      "body": [
-         "---",
-         "title:",
-         "date:",
-         "tags:",
-         "categories:"
-         "---"
-      ],
-      "description": "notes title"
-   }
+	"markdown title":{
+		"prefix": "mdtit",
+		"body": [
+			"---",
+			" title: $TM_FILENAME_BASE",
+			" date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+			" tags:",
+			" categories:",
+			"---"
+		],
+		"description": "notes title"
+	}
    }
    ```
    - 这样子，就能调用ctrl+shift+p,然后insert Snippt，选择mdtitle,就能插入自动插入一段声明，然后加入日期，标签，分类等信息
