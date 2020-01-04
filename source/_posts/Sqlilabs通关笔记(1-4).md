@@ -95,12 +95,12 @@ http://localhost/sqlilabs/practice/example1.php?id=-1' union select 1,2,3%23
     sqlmap.py -u “注入地址” -v 1 -T “表名” -D “数据库” -C “字段” –-dump # 获取表中的数据
     ```
     * **注意的点**
-        1. **-–batch** 默认运行
+        1. **-–batch** 默认选项运行
         2. **--dbs** 爆破数据库
         3. **-–technique** 指定sqlmap使用的检测技术
-            - B:Boolean-based-blind （布尔型型注入）
+            - B:Boolean-based-blind （布尔型注入）
             - U:Union query-based （联合注入）
-            - E:Error-based （报错型注入
+            - E:Error-based （报错型注入)
             - S:Starked queries （通过sqlmap读取文件系统、操作系统、注册表必须 使用该参数，可多语句查询注入）
             - T:Time-based blind （基于时间延迟注入）
 

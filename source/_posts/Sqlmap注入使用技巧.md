@@ -3,7 +3,7 @@ title: Sqlmap注入使用技巧
 date: 2019-04-09 13:13:05
 tags:
     - Sqlmap
-    - 注入
+    - SQL注入
     - 软件
 categories:
     - 笔记总结

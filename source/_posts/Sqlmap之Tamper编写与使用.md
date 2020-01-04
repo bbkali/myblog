@@ -3,7 +3,8 @@ title: Sqlmap之Tamper编写与使用
 date: 2019-04-09 13:13:28
 tags:
     - Sqlmap
-    - Tamper 
+    - Tamper
+    - SQL注入 
 categories:
     - 学习资料
 ---
