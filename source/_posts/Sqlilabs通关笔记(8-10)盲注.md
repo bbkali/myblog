@@ -7,7 +7,7 @@
 
 ## 第八关 基于GET单引号布尔型盲注
 
-![2020-1-4-22-51-4-Sqlilabs通关笔记(8-10)盲注](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-4-22-51-4-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(8-10)%E7%9B%B2%E6%B3%A8)
+![2020-1-5-9-10-58](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-10-58)
 
 <!--more-->
 ### 存在注入点判断
@@ -88,7 +88,7 @@
 
 ## 第九关 基于GET单引号基于时间盲注
 
-![2020-1-5-0-12-16-Sqlilabs通关笔记(8-10)盲注](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-0-12-16-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(8-10)%E7%9B%B2%E6%B3%A8)
+![2020-1-5-9-11-26](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-11-26)
 
 ### 存在注入点判断
 1. 加上反斜杠发现页面并无变化

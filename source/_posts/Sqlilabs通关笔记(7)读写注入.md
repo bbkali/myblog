@@ -51,10 +51,10 @@
 mysql使用以下命令查看是否打开文件写入开关
 > show global variables like '%secure%'
 
-![2020-1-4-13-44-44-Sqlilabs通关笔记(7)读写注入](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-4-13-44-44-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(7)%E8%AF%BB%E5%86%99%E6%B3%A8%E5%85%A5)
+![2020-1-5-9-9-4](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-9-4)
 
 修改my.ini添加secure-file-priv参数,没有填具体值表示不做限制(这样做其实很危险)
-![2020-1-4-13-47-35-Sqlilabs通关笔记(7)读写注入](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-4-13-47-35-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(7)%E8%AF%BB%E5%86%99%E6%B3%A8%E5%85%A5)
+![2020-1-5-9-9-20](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-9-20)
 
 重启mysql即可
 
@@ -73,11 +73,11 @@ mysql使用以下命令查看是否打开文件写入开关
 
 **可以在文件目录查看发现文件写入成功**
 
-![2020-1-4-13-33-20-Sqlilabs通关笔记(7)读写注入](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-4-13-33-20-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(7)%E8%AF%BB%E5%86%99%E6%B3%A8%E5%85%A5)
+![2020-1-5-9-9-49](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-9-49)
 
 **同时网页可以直接访问该文件并执行**
 
-![2020-1-4-13-34-17-Sqlilabs通关笔记(7)读写注入](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-4-13-34-17-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(7)%E8%AF%BB%E5%86%99%E6%B3%A8%E5%85%A5)
+![2020-1-5-9-10-10](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-9-10-10)
 
 
 ### 读取敏感文件
