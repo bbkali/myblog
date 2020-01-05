@@ -7,7 +7,7 @@
 
 
 ## 第七关 基于文件写入注入
-![2020-1-4-13-30-18-Sqlilabs通关笔记(7)读写注入](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-4-13-30-18-Sqlilabs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0(7)%E8%AF%BB%E5%86%99%E6%B3%A8%E5%85%A5)
+![2020-1-5-8-11-29](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-5-8-11-29)
 
 ### 存在注入点判断
 1. 任意输入单引号，会显示报错
