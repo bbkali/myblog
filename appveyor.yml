@@ -16,8 +16,8 @@ install:
     - npm install hexo-renderer-jade --save
     - npm install hexo-renderer-stylus --save
     - npm install hexo-algolia --save
-build_script:
     - hexo clean
+build_script:
     - hexo generate
 artifacts:
     - path: public
