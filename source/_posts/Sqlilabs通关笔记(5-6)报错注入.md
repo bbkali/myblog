@@ -2,7 +2,7 @@
  title: Sqlilabs通关笔记(5-6)报错注入
  date: 2020-01-03 15:40:47
  tags: SQL注入
- categories:
+ categories: SQL注入
 ---
 
 ## 第五关 基于GET单引号双注入

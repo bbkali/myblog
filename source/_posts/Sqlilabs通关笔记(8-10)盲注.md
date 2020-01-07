@@ -2,7 +2,7 @@
  title: Sqlilabs通关笔记(8-10)盲注
  date: 2020-01-04 17:20:00
  tags: SQL注入
- categories:
+ categories: SQL注入
 ---
 
 ## 第八关 基于GET单引号布尔型盲注

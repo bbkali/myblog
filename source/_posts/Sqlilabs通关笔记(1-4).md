@@ -2,7 +2,7 @@
  title: Sqlilabs通关笔记(1-4)
  date: 2020-01-02 15:28:58
  tags: SQL注入
- categories:
+ categories: SQL注入
 ---
 
 

@@ -17,6 +17,7 @@ install:
     - npm install hexo-renderer-stylus --save
     - npm install hexo-algolia --save
 build_script:
+    - hexo clean
     - hexo generate
 artifacts:
     - path: public
