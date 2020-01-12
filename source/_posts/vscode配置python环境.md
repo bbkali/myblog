@@ -13,6 +13,8 @@
  ## 配置python设置
  1. 下载python,[下载地址](https://www.python.org/downloads/),添加python进入系统环境变量
 ![5792949-31833c97ae3bd272.gif](https://i.loli.net/2019/12/26/m9sKiH2fx8kcdlz.gif)
+
+<!--more-->
  2. 下载python集合插件
    - 打开VScode，按下快捷键Ctrl+Shift+X，进入插件管理页面。
    - 在搜索栏输入python。
@@ -22,7 +24,7 @@
    文件-首选项-设置 search pythonpath,将python安装目录填写进去，左下角可以点击切换python版本和环境
  4. vscode语言包安装与选择
    > 使用快捷键组合【Ctrl+Shift+p】，在搜索框中输入“configure display language”，点击安装zh语言包确定后;重启vscode工具.
-<!--more-->
+
  
  ## 常用python插件推荐
  
