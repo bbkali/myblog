@@ -18,7 +18,6 @@ install:
     - npm install hexo-algolia --save
 build_script:
     - hexo generate
-    - hexo clean
 artifacts:
     - path: public
 on_success:
