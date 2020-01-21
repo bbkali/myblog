@@ -9,7 +9,6 @@ install:
     - npm --version
     - npm install
     - npm install -g hexo
-    - npm install hexo-cli -g
     - npm install hexo-renderer-pug --save
     - npm install hexo-deployer-git --save
     - npm install hexo-server --save
