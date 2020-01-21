@@ -15,7 +15,7 @@
 * 验证被抓取的数据(检查item是否包含某些字段)
 * 重复性检查(然后丢弃)
 * 将抓取的数据存储到数据库中
-
+<!-- more -->
 ## 编写自己的Pipeline
 定义一个Python类，然后实现方法`process_item(self, item, spider)`即可，返回一个字典或Item，或者抛出`DropItem`异常丢弃这个Item。
 

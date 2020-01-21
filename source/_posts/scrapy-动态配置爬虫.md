@@ -33,6 +33,7 @@ process.start() # the script will block here until the crawling is finished
 ``` bash
 python run.py
 ```
+<!-- more -->
 
 另外一个功能更强大的类是`scrapy.crawler.CrawlerRunner`，推荐你使用这个
 ``` python

@@ -21,6 +21,7 @@ class Product(scrapy.Item):
     stock = scrapy.Field()
     last_updated = scrapy.Field(serializer=str)
 ```
+<!-- more -->
 ## Item Fields
 `Field`对象可用来对每个字段指定元数据。例如上面`last_updated`的序列化函数指定为`str`，可任意指定元数据，不过每种元数据对于不同的组件意义不一样。
 

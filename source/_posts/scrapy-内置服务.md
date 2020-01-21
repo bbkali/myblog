@@ -23,7 +23,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.warning("This is a warning")
 ```
-
+<!-- more -->
 如果在Spider里面使用，那就更简单了，因为logger就是它的一个实例变量
 ``` python
 import scrapy

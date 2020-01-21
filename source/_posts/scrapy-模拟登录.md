@@ -15,7 +15,7 @@
 
 我这里使用chrome浏览器的调试工具，F12打开后选择Network，并将Preserve log勾上。
 我故意输入错误的用户名和密码，得到它提交的form表单参数还有POST提交的URL:
-
+<!-- more -->
 ![2020-1-19-17-31-30](https://raw.githubusercontent.com/bbkali/picbad/master/2020-1-19-17-31-30)
 
 去查看html源码会发现表单里面有个隐藏的`authenticity_token`值，这个是需要先获取然后跟用户名和密码一起提交的:

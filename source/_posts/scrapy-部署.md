@@ -4,6 +4,7 @@
  tags: Scrapy
  categories: Scrapy
 ---
+
 # Scrapy教程09- 部署
 
 本篇主要介绍两种部署爬虫的方案。如果仅仅在开发调试的时候在本地部署跑起来是很容易的，不过要是生产环境，爬虫任务量大，并且持续时间长，那么还是建议使用专业的部署方法。主要是两种方案：
@@ -28,7 +29,7 @@ pip install scrapyd
 ``` bash
 apt-get install scrapyd
 ```
-
+<!-- more -->
 ### 配置
 配置文件地址，优先级从低到高
 

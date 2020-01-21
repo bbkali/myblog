@@ -23,7 +23,7 @@ Scrapy选择器构建在lxml基础之上，所以可以保证速度和准确性�
 本章我们来详细讲解下选择器的工作原理，还有它们极其简单和相似的API，比lxml的API少多了，因为lxml可以用于很多其他领域。
 
 完整的API请查看[Selector参考](http://doc.scrapy.org/en/latest/topics/selectors.html#topics-selectors-ref)
-
+<!-- more -->
 ## 关于选择器
 Scrapy帮我们下载完页面后，我们怎样在满是html标签的内容中找到我们所需要的元素呢，这里就需要使用到选择器了，它们是用来定位元素并且提取元素的值。先来举几个例子看看：
 

@@ -68,7 +68,7 @@ class HuxiuItem(scrapy.Item):
 * start_urls: 初始化下载链接URL
 * parse(): 用来解析下载后的Response对象，该对象也是这个方法的唯一参数。
 它负责解析返回页面数据并提取出相应的Item（返回Item对象），还有其他合法的链接URL（返回Request对象）。
-
+<!-- more -->
 我们在coolscrapy/spiders文件夹下面新建`huxiu_spider.py`，内容如下：
 ``` python
 #!/usr/bin/env python
