@@ -1,8 +1,8 @@
 ---
  title: cmd命令总结(二)
  date: 2020-01-22 15:09:04
- tags: Scrapy
- categories: Scrapy
+ tags: cmd
+ categories: cmd
 ---
 
 ### 重定向操作符
@@ -18,6 +18,7 @@
 
 > di >right.txt 2>error.txt # 如果错误就输出到error.txt中去
 
+<!-- more -->
 ### 网络命令
 
 **ping**
@@ -84,7 +85,19 @@ exit
 
 **start** 打开程序
 
+**net use** IPC
+1. 建立空连接
+> net use \\IP\ipc$ "" /user:""
+2. 建立非空连接
+> net use \\IP\ipc$ "用户名" /user:"密码"
+3. 映射默认默认共享，将对方c盘映射本地z盘
+> net use z: \\IP\c$ "密码" /user:"用户名"
+4. 删除一个IPC$连接
+> net use \\IP\ipc$ /del
+5. 删除共享映射
+> net use c: /del
 
+**reg** 增删改查注册表命令(regedit是图形表)
 ### 案例
 1. 在内网ping查找存活主机
 > for /l %%i in (1,1,255) do ping -n 1 192.168.0.%i | findstr 字节 >> iplist.txt
@@ -94,3 +107,19 @@ exit
 
 3. 批量找出特定后缀的文件名
 > for /r  f:\ %i in (*.txt) do echo %%i
+
+4. 在文件中检索关键字
+```
+@echo off
+title 
+:start
+set /p name=请输入你要搜索的内容:
+type test.txt | findstr %name%
+if %name%==exit (goto end) else (goto start)
+:end
+exit
+pause >nul
+```
+
+5. 设置ip
+> netsh interface ip set address name="wlan" source=static addr=x mask=x gateway=x 1
