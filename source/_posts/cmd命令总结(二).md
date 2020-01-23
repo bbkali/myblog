@@ -56,7 +56,6 @@ ipconfig /flushdns # 刷新dns
 > set address name="wlan" source=static addr=192.168.0.2 mask=255.255.255.0 gateway=192.168.0.1 # 设置静态ip
 > set address name="wlan" source=dhcp # 自动获取ip
 
-
 > netsh winsock reset # 重新安装网络协议ping本地不通时
 
 > netsh firewall set opmode mode=enable # 开启防火墙
@@ -98,6 +97,14 @@ exit
 > net use c: /del
 
 **reg** 增删改查注册表命令(regedit是图形表)
+```
+REG Operation [Parameter List]
+
+  Operation  [ QUERY   | ADD    | DELETE  | COPY    |
+               SAVE    | LOAD   | UNLOAD  | RESTORE |
+               COMPARE | EXPORT | IMPORT  | FLAGS ]
+```
+
 ### 案例
 1. 在内网ping查找存活主机
 > for /l %%i in (1,1,255) do ping -n 1 192.168.0.%i | findstr 字节 >> iplist.txt
