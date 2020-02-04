@@ -43,6 +43,9 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-
 #浙大 
 deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free 
 deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
+#官方源
+deb http://http.kali.org/kali kali-rolling main non-free contrib
+deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 ```
 3. 进行更新
 ```bash
