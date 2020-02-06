@@ -1,8 +1,8 @@
 ---
  title: DC-6靶机渗透实战
  date: 2020-02-06 20:14:46
- tags: Scrapy
- categories: Scrapy
+ tags: 靶机渗透
+ categories: 靶机渗透
 ---
 
 ### 靶机介绍
