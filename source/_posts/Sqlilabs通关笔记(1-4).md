@@ -247,14 +247,13 @@ $row = mysql_fetch_array($result);
 ```
 
 2. 由源码看出对GET传入的参数未做任何过滤，并打印出错误信息，直接在数据库中查询，导致可以将payload传入拼接执行
-    - 第一题SQL语句 $sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
-    - 第二题SQL语句 $sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
-    - 第三题SQL语句 $sql="SELECT * FROM users WHERE id=('$id') LIMIT 0,1";
-    - 第四题SQL语句 $sql="SELECT * FROM users WHERE id=("$id") LIMIT 0,1";
+    - 第一题SQL语句 
+    > $sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
+    - 第二题SQL语句 
+    > $sql="SELECT * FROM users WHERE id=$id LIMIT 0,1";
+    - 第三题SQL语句 
+    > $sql="SELECT * FROM users WHERE id=('$id') LIMIT 0,1";
+    - 第四题SQL语句 
+    > $sql="SELECT * FROM users WHERE id=("$id") LIMIT 0,1";
 
 3. 通过源代码可以更加清晰的理解payload的构造思路
-
-
-
-
-
